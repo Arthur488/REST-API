@@ -4,18 +4,17 @@ function showModal(id) {
     $("#exampleModal").modal();
 }
 
-function makeAJAXCall(id) {
+function makeAJAXCall(url) {
     $.ajax({
-        url: "products/edit/" + id, // URL-адрес серверного эндпоинта
-        type: "GET", // Метод запроса
-        success: function(response) { // Обработчик успешного выполнения запроса
-            console.log(response)
-            // Обновление содержимого элемента "result"
+        url: url,
+        type: "GET",
+        success: function(response) {
             $("#edit_content").html(response);
         },
-        error: function(xhr, status, error) { // Обработчик ошибки
+        error: function(xhr, status, error) {
             console.log(error);
         }
     });
 }
+
 

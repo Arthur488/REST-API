@@ -4,6 +4,8 @@
     <file url="file://$PROJECT_DIR$/ClientApp/ClientApp/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ClientApp/ClientApp/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ClientApp/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ClientApp/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ClientApp/src/main/resources/static/js/common.js" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/ServerApp/ServerApp/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ServerApp/ServerApp/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ServerApp/src/main/java" charset="UTF-8" />

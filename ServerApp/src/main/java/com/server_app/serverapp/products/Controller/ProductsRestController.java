@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 @RestController
@@ -27,7 +28,7 @@ public class ProductsRestController {
     }
 
     @GetMapping("/products/{id}")
-    public ResponseEntity<?> getProduct(@PathVariable(name = "id") Integer id) {
+    public ResponseEntity <?> getProduct(@PathVariable(name = "id") Integer id) {
         Product product = productsService.findById(id);
         return product == null ? ResponseEntity.status(HttpStatus.NO_CONTENT).build() : ResponseEntity.ok(product);
     }

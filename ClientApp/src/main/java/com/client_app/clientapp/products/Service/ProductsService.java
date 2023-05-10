@@ -1,5 +1,6 @@
 package com.client_app.clientapp.products.Service;
 
+import com.client_app.clientapp.entity.HttpMethods;
 import com.client_app.clientapp.entity.Product;
 
 import java.io.IOException;
@@ -29,17 +30,14 @@ public interface ProductsService {
      * Update product via api string.
      *
      * @param product the product
-     * @return the string
      */
-    String updateProductViaAPI(Product product);
+    void saveProductViaAPI(Product product, HttpMethods httpMethod) throws IOException;
 
     /**
      * Delete product from api by id string.
      *
      * @param id the id
-     * @return the string
      */
-    String deleteProductFromAPIByID(Integer id);
+    void deleteProductFromAPIByID(Integer id) throws IOException;
 
-    String saveProductViaAPI(Product product);
 }

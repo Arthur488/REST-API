@@ -1,21 +1,24 @@
 package com.client_app.clientapp.products.Controller;
 
+import com.client_app.clientapp.entity.HttpMethods;
 import com.client_app.clientapp.entity.Product;
 import com.client_app.clientapp.products.Service.ProductsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.io.IOException;
 import java.util.List;
 
 @Controller
 @RequestMapping("/products")
 public class ProductsController {
 
-    private ProductsService productsService;
+    private final ProductsService productsService;
 
     @Autowired
     public ProductsController(ProductsService productsService) {
@@ -43,21 +46,20 @@ public class ProductsController {
     }
 
     @PostMapping("/update")
-    public String updateProduct(Product product){
-        productsService.updateProductViaAPI(product);
+    public String updateProduct(Product product) throws IOException {
+        productsService.saveProductViaAPI(product, HttpMethods.PUT);
         return "redirect:/products";
     }
 
     @PostMapping("/save")
-    public String saveProduct(Product product){
-        productsService.saveProductViaAPI(product);
+    public String saveProduct(Product product) throws IOException {
+        productsService.saveProductViaAPI(product, HttpMethods.POST);
         return "redirect:/products";
     }
 
     @GetMapping("/delete/{id}")
-    public String deleteProduct(@PathVariable(name = "id") Integer id){
-        String response = productsService.deleteProductFromAPIByID(id);
-        System.out.println(response);
+    public String deleteProduct(@PathVariable(name = "id") Integer id) throws IOException {
+        productsService.deleteProductFromAPIByID(id);
         return "redirect:/products";
     }
 

@@ -52,11 +52,7 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- XML Converter -->
-        <dependency>
-            <groupId>com.fasterxml.jackson.dataformat</groupId>
-            <artifactId>jackson-dataformat-xml</artifactId>
-        </dependency>
+
         <dependency>
             <groupId>com.client_app</groupId>
             <artifactId>ClientApp</artifactId>
