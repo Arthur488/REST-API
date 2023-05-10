@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head th:replace="~{fragments::page_head('All Products')}"></head>
+
+<body id="testBodyId">
+
+<div class="container-fluid">
+
+    <div class="text-center mt-3 mb-5">
+        <h3>Усі товари від постачальника (ServerApp)</h3>
+    </div>
+
+    <div th:replace="~{fragments::products_page_listing(${allProductList})}"></div>
+
+    <div th:replace="~{fragments::edit_modal}"></div>
+    <div th:replace="~{fragments::confirm_modal}"></div>
+
+</div>
+
+</body>
+
+<script th:src="@{/js/common.js}"></script>
+
+</html>
