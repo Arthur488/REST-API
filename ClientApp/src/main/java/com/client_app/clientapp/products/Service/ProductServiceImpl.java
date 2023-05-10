@@ -21,8 +21,7 @@ public class ProductServiceImpl implements ProductsService {
 
     @Override
     public List <Product> getAllProductsFromAPI() {
-        return requestToAPI(API_REQUEST_URL, new TypeToken <List <Product>>() {
-        }.getType());
+        return requestToAPI(API_REQUEST_URL, new TypeToken <List <Product>>() {}.getType());
     }
 
     @Override
@@ -39,6 +38,24 @@ public class ProductServiceImpl implements ProductsService {
             e.printStackTrace();
         }
         return null;
+    }
+
+
+    @Override
+    public String saveProductViaAPI(Product product) {
+        MediaType mediaType = MediaType.parse("application/json");
+        String contentJson = gson.toJson(product);
+        RequestBody body = RequestBody.create(contentJson, mediaType);
+
+        Request request = new Request.Builder().url(API_REQUEST_URL).post(body).addHeader("Content-Type", "application/json").build();
+
+        String responseBody = "None";
+        try (Response response = httpClient.newCall(request).execute()) {
+            responseBody = response.isSuccessful() ? response.body().string() : response.message();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return responseBody;
     }
 
     @Override

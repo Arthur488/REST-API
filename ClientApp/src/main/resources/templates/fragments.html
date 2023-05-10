@@ -33,14 +33,14 @@
 
                     <div class="container-fluid">
                         <div class="row">
-                            <div class="col-sm m-1">
+                            <div class="col-6 m-1">
                                 <button type="button" class="btn btn-outline-primary btn-sm"
                                         data-toggle="modal" data-target="#editProduct"
                                         th:attr="onclick='makeAJAXCall(\'' + ${product.id} + '\')'">
                                     Details
                                 </button>
                             </div>
-                            <div class="col-sm m-1">
+                            <div class="col-6 m-1">
                                 <button type="button" class="btn btn-outline-danger btn-sm"
                                         data-toggle="modal" data-target="#exampleModal"
                                         th:attr="onclick='showModal(\'' + ${product.id} + '\')'">
@@ -53,6 +53,21 @@
             </div>
         </div>
     </th:block>
+    <div class="col-12 mb-4" style="max-width: 10%">
+        <a href="javascript:void(0)" data-toggle="modal" data-target="#editProduct" onclick="myFunction()">
+            <div class="card h-100 border-info">
+
+                <div class="card-body border d-flex justify-content-center align-items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                        <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                        <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"
+                              fill="grey"/>
+                    </svg>
+                </div>
+
+            </div>
+        </a>
+    </div>
 </div>
 
 <!-- Modal -->
@@ -83,9 +98,17 @@
 <div th:fragment="modal_edit_content" th:remove="${'tag'}">
     <div class="container-fluid">
 
-        <div class="mb-3">
-            <h2 th:text="'Edit product ID :' + *{product.id}"></h2>
-        </div>
+        <th:block th:if="${product.id == 0}">
+            <div class="mb-3">
+                <h2>Creating New Product</h2>
+            </div>
+        </th:block>
+
+        <th:block th:if="${product.id != 0}">
+            <div class="mb-3">
+                <h2 th:text="'Edit product ID :' + ${product.id}"></h2>
+            </div>
+        </th:block>
 
         <form th:action="@{/products/save}" th:object="${product}" method="post">
             <input type="hidden" th:field="${product.id}">
@@ -104,7 +127,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-success" >Save changes</button>
+                <button type="submit" class="btn btn-success">Save changes</button>
             </div>
         </form>
 

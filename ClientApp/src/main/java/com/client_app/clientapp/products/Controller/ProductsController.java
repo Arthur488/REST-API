@@ -36,10 +36,21 @@ public class ProductsController {
         return "fragments::modal_edit_content";
     }
 
+    @GetMapping("/new")
+    public String newProduct(Model model){
+        model.addAttribute("product", new Product());
+        return "fragments::modal_edit_content";
+    }
+
+    @PostMapping("/update")
+    public String updateProduct(Product product){
+        productsService.updateProductViaAPI(product);
+        return "redirect:/products";
+    }
+
     @PostMapping("/save")
     public String saveProduct(Product product){
-        String response = productsService.updateProductViaAPI(product);
-        System.out.println(response);
+        productsService.saveProductViaAPI(product);
         return "redirect:/products";
     }
 

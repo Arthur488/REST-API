@@ -40,4 +40,6 @@ public interface ProductsService {
      * @return the string
      */
     String deleteProductFromAPIByID(Integer id);
+
+    String saveProductViaAPI(Product product);
 }

@@ -1,9 +1,9 @@
-package test.java.com.server_app.serverapp.products.DAO;
+package com.server_app.serverapp.products.DAO;
 
 
-import main.java.com.server_app.serverapp.entity.Product;
-import main.java.com.server_app.serverapp.products.DAO.ProductRepository;
-import org.junit.Test;
+import com.server_app.serverapp.entity.Product;
+import com.server_app.serverapp.products.DAO.ProductRepository;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace;
