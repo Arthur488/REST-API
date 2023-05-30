@@ -45,15 +45,10 @@ public class ProductsController {
         return "fragments::modal_edit_content";
     }
 
-    @PostMapping("/update")
-    public String updateProduct(Product product) throws IOException {
-        productsService.saveProductViaAPI(product, HttpMethods.PUT);
-        return "redirect:/products";
-    }
-
-    @PostMapping("/save")
+    @PostMapping("/save_update")
     public String saveProduct(Product product) throws IOException {
-        productsService.saveProductViaAPI(product, HttpMethods.POST);
+        HttpMethods method = product.getId() == null ? HttpMethods.POST : HttpMethods.PUT;
+        productsService.saveProductViaAPI(product, method);
         return "redirect:/products";
     }
 

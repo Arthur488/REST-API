@@ -2,7 +2,7 @@ package com.client_app.clientapp.entity;
 
 public class Product {
 
-    private int id;
+    private Integer id;
 
     private String name;
 
@@ -10,11 +10,11 @@ public class Product {
 
     private String description;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

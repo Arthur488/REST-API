@@ -22,22 +22,4 @@
 
 <script th:src="@{/js/common.js}"></script>
 
-<script>
-
-    function myFunction(){
-        $.ajax({
-            url: "products/new",
-            type: "GET",
-            success: function(response) {
-                console.log(response)
-                $("#edit_content").html(response);
-            },
-            error: function(xhr, status, error) {
-                console.log(error);
-            }
-        });
-    }
-
-</script>
-
 </html>

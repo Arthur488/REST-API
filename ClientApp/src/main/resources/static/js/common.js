@@ -8,13 +8,17 @@ function makeAJAXCall(url) {
     $.ajax({
         url: url,
         type: "GET",
-        success: function(response) {
+        success: function (response) {
             $("#edit_content").html(response);
         },
-        error: function(xhr, status, error) {
+        error: function (xhr, status, error) {
             console.log(error);
         }
     });
 }
+
+
+
+
 
 
